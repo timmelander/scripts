@@ -13,7 +13,7 @@ use List::Util qw( min );
 # Add your own attributes to the following list using a comma as a delimiter
 $attributes = "uid,title,employeenumber,mail,postaladdress,postalcode";
 
-
+# Function to draw progress bar
 sub draw {
     local $| = 1;
     my ($self, $x, $max_val) = @_;
@@ -65,7 +65,7 @@ print "===================== Welcome to ldif2csv.pl =====================\n";
 # Progress bar
 print "1. Getting entry count from input file $input_file\n";
 $entries = `grep -c 'dn: ' $input_file`;
-my $bar = ProgressBar->new( width => 50 );
+my $bar = ProgressBar->new( width => 40 );
 my $total = &commify($entries);
 chomp($total);
 print "2. Found $total entries to be processed\n";
